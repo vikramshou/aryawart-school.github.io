@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aryawart School Sotwara | Nawalgarh, Jhunjhunu, Rajasthan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:#FFFBF5;color:#1a1a2e;overflow-x:hidden}
+    ::-webkit-scrollbar{width:5px;background:#f5f0e8}
+    ::-webkit-scrollbar-thumb{background:#1a3a6b;border-radius:3px}
+    .serif{font-family:'Playfair Display',Georgia,serif}
+    .sans{font-family:'DM Sans',sans-serif}
+    .navy{color:#1a3a6b}
+    section{padding:80px 5%}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,251,245,0.97);backdrop-filter:blur(14px);border-bottom:1px solid #ede8df;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;transition:all .4s}
+    .logo-box{display:flex;align-items:center;gap:12px}
+    .logo-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#1a3a6b,#0f2347);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .logo-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a3a6b;line-height:1.1}
+    .logo-sub{font-size:10px;color:#888;letter-spacing:1px;text-transform:uppercase}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{font-size:13px;font-weight:500;color:#444;text-decoration:none;transition:color .25s}
+    .nav-links a:hover{color:#1a3a6b}
+    .btn-amber{background:linear-gradient(135deg,#F59E0B,#d97706);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(245,158,11,.3)}
+    .btn-amber:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,.45)}
+    .btn-main{background:linear-gradient(135deg,#1a3a6b,#0f2347);color:#fff;border:none;padding:13px 30px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(26,58,107,.3)}
+    .btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(26,58,107,.4)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:#1a3a6b;border-radius:2px;transition:all .3s}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,251,245,.98);backdrop-filter:blur(14px);padding:20px 5%;flex-direction:column;gap:16px;border-bottom:1px solid #ede8df;z-index:999}
+    .mobile-menu a{font-size:15px;font-weight:500;color:#444;text-decoration:none;padding:8px 0;border-bottom:1px solid #f0ece5}
+    .mobile-menu.open{display:flex}
+
+    /* HERO */
+    #home{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#1a3a6b 0%,#0f2347 55%,#1a3a6b 100%);position:relative;overflow:hidden;padding:100px 5% 60px}
+    .hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.4);border-radius:20px;padding:6px 16px;margin-bottom:24px}
+    .hero-badge span{font-size:12px;color:#F59E0B;font-weight:600;letter-spacing:1px}
+    .hero-h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,64px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:22px}
+    .hero-h1 em{color:#F59E0B;font-style:italic}
+    .hero-p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:32px;font-weight:300;max-width:460px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 26px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s}
+    .btn-ghost:hover{background:rgba(255,255,255,.2)}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .stat-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 18px;text-align:center}
+    .stat-icon{font-size:26px;margin-bottom:8px}
+    .stat-val{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:#F59E0B}
+    .stat-lbl{font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;font-weight:300}
+    .hero-info-bar{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin-top:14px}
+    .hero-fade{position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(180deg,transparent,#FFFBF5)}
+    .circle-deco{position:absolute;border-radius:50%;background:#fff;pointer-events:none}
+
+    /* SECTION HEADERS */
+    .sec-tag{font-size:11px;letter-spacing:3px;color:#F59E0B;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+    .sec-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#1a3a6b;margin-bottom:16px}
+    .sec-sub{font-size:15px;color:#777;max-width:540px;margin:0 auto;line-height:1.8;font-weight:300}
+
+    /* PROGRAMS */
+    #academics{background:#FFFBF5}
+    .programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+    .program-card{background:#fff;border-radius:16px;padding:30px 24px;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .35s;border-top:4px solid #ccc}
+    .program-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+    .prog-icon{font-size:34px;margin-bottom:14px}
+    .prog-range{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+    .prog-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a3a6b;margin-bottom:10px}
+    .prog-desc{font-size:13.5px;color:#888;line-height:1.8;font-weight:300}
+
+    /* FEATURES */
+    #features{background:linear-gradient(135deg,#f0f4ff,#fff8ef)}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+    .feature-card{background:#fff;border-radius:14px;padding:28px 22px;box-shadow:0 2px 16px rgba(0,0,0,.05);transition:all .3s;text-align:center}
+    .feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+    .feat-icon{font-size:38px;margin-bottom:14px}
+    .feat-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#1a3a6b;margin-bottom:8px}
+    .feat-desc{font-size:13px;color:#888;line-height:1.75;font-weight:300}
+
+    /* ABOUT */
+    #about{background:#FFFBF5}
+    .about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .about-card{background:linear-gradient(135deg,#1a3a6b,#0f2347);border-radius:20px;padding:44px;position:relative;overflow:hidden}
+    .about-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(245,158,11,.15)}
+    .about-quote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:20px}
+    .about-author{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:32px}
+    .about-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mini-stat-val{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#F59E0B;text-align:center}
+    .mini-stat-lbl{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px;text-align:center}
+    .about-text h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,44px);font-weight:700;color:#1a3a6b;line-height:1.2;margin-bottom:20px}
+    .about-text h2 em{font-style:italic}
+    .about-text p{font-size:14.5px;color:#777;line-height:1.9;font-weight:300;margin-bottom:18px}
+    .about-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+    .btn-outline{background:transparent;color:#1a3a6b;border:1.5px solid #1a3a6b;padding:12px 26px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;cursor:pointer;transition:all .3s}
+    .btn-outline:hover{background:#1a3a6b;color:#fff}
+
+    /* EVENTS + TESTIMONIALS */
+    #events{background:linear-gradient(135deg,#fff8ef,#f0f4ff)}
+    .events-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .event-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.06);display:flex;gap:18px;align-items:center;transition:all .3s;margin-bottom:14px}
+    .event-card:hover{transform:translateX(5px);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+    .event-date-box{border-radius:12px;padding:10px 14px;text-align:center;min-width:58px}
+    .event-day{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+    .event-mon{font-size:10px;letter-spacing:1px;font-weight:600}
+    .event-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px}
+    .event-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a3a6b}
+    .testi-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 30px rgba(0,0,0,.08)}
+    .testi-quote-mark{font-size:52px;line-height:1;color:#F59E0B;opacity:.3;margin-bottom:10px}
+    .testi-text{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:#444;line-height:1.75;margin-bottom:20px}
+    .testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a3a6b,#F59E0B);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;flex-shrink:0}
+    .testi-name{font-weight:600;font-size:14px;color:#1a3a6b}
+    .testi-role{font-size:12px;color:#aaa;margin-top:2px}
+    .testi-dots{display:flex;gap:8px;margin-top:18px}
+    .dot{height:8px;border-radius:4px;border:none;cursor:pointer;transition:all .3s}
+
+    /* GALLERY */
+    #gallery{background:#FFFBF5}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:0 auto}
+    .gallery-item{border-radius:14px;overflow:hidden;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .3s;cursor:default}
+    .gallery-item:hover{transform:scale(1.03)}
+    .gallery-emoji{font-size:38px;margin-bottom:8px}
+    .gallery-label{font-size:13px;font-weight:600;color:#1a3a6b}
+
+    /* CONTACT */
+    #contact{background:linear-gradient(135deg,#1a3a6b,#0f2347)}
+    .contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,44px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:20px}
+    .contact-info h2 em{font-style:italic;color:#F59E0B}
+    .contact-info p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:32px;font-weight:300}
+    .contact-detail{display:flex;gap:14px;margin-bottom:18px}
+    .c-icon{font-size:20px;min-width:26px}
+    .c-lbl{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+    .c-val{font-size:13.5px;color:rgba(255,255,255,.85);font-weight:300}
+    .contact-form{background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:36px}
+    .contact-form h3{font-family:'Playfair Display',serif;font-size:21px;color:#fff;font-weight:700;margin-bottom:22px}
+    .input-f{width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:8px;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .25s;margin-bottom:14px}
+    .input-f:focus{border-color:#F59E0B}
+    .input-f::placeholder{color:rgba(255,255,255,.4)}
+    textarea.input-f{resize:vertical;min-height:100px}
+    .success-box{text-align:center;padding:36px 0}
+    .success-emoji{font-size:52px;margin-bottom:14px}
+
+    /* FOOTER */
+    footer{background:#070d1a;padding:48px 5% 24px;border-top:1px solid #111}
+    .footer-inner{max-width:1200px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+    .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .footer-brand-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
+    .footer-desc{font-size:13px;color:#666;line-height:1.8;max-width:250px;font-weight:300}
+    .footer-col-title{font-size:11px;letter-spacing:2px;color:#F59E0B;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+    .footer-link{font-size:13px;color:#666;margin-bottom:10px;cursor:pointer;transition:color .25s;font-weight:300}
+    .footer-link:hover{color:#fff}
+    .footer-bottom{border-top:1px solid #111;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+    .footer-copy{font-size:12px;color:#444}
+    .footer-addr{font-size:12px;color:#444}
+    .footer-designed{font-size:12px;color:#555;border-top:1px solid #151515;padding-top:14px;width:100%;text-align:center;margin-top:6px}
+    .footer-designed a{color:#F59E0B;text-decoration:none}
+    .footer-designed strong{color:#F59E0B}
+
+    /* REVEAL ANIMATION */
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero-inner,.about-inner,.events-inner,.contact-inner{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+    }
+    @media(max-width:600px){
+      .gallery-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr}
+      section{padding:60px 5%}
+    }
+
+    /* ANIMATIONS */
+    @keyframes heroIn{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .hero-animate{animation:heroIn .9s ease forwards}
+    .hero-animate-d{animation:heroIn .9s .3s ease both}
+    .bobble{animation:bobble 3s ease-in-out infinite}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo-box">
+    <div class="logo-icon">🏫</div>
+    <div>
+      <div class="logo-name">Aryawart School Sotwara</div>
+      <div class="logo-sub">Nawalgarh, Jhunjhunu · Rajasthan</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#academics">Academics</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <button class="btn-amber" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Apply Now</button>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#academics" onclick="closeMenu()">Academics</a>
+  <a href="#events" onclick="closeMenu()">Events</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <button class="btn-amber" onclick="closeMenu();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Apply Now</button>
+</div>
+
+<!-- HERO -->
+<section id="home" style="padding:100px 5% 60px">
+  <div class="circle-deco" style="width:400px;height:400px;top:5%;right:-80px;opacity:.06"></div>
+  <div class="circle-deco" style="width:260px;height:260px;top:55%;left:-60px;opacity:.05"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(245,158,11,.15) 0%,transparent 60%);pointer-events:none"></div>
+
+  <div class="hero-inner">
+    <div class="hero-animate">
+      <div class="hero-badge">
+        <span>🎉</span>
+        <span>ADMISSIONS OPEN 2025–26</span>
+      </div>
+      <h1 class="hero-h1">Shaping<br><em>Tomorrow's</em><br>Leaders Today</h1>
+      <p class="hero-p">At Aryawart School Sotwara, every child's potential is our purpose. We blend academic rigour with holistic development to nurture confident, compassionate citizens.</p>
+      <div class="hero-btns">
+        <button class="btn-amber" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Begin Admission →</button>
+        <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Know More</button>
+      </div>
+    </div>
+
+    <div class="hero-animate-d">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-icon">🎓</div><div class="stat-val">1000+</div><div class="stat-lbl">Students Enrolled</div></div>
+        <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-val">98%</div><div class="stat-lbl">Board Pass Rate</div></div>
+        <div class="stat-card"><div class="stat-icon">👩‍🏫</div><div class="stat-val">50+</div><div class="stat-lbl">Expert Faculty</div></div>
+        <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-val">10+</div><div class="stat-lbl">Years of Excellence</div></div>
+      </div>
+      <div class="hero-info-bar">
+        <span class="bobble" style="font-size:26px">🏅</span>
+        <div>
+          <div style="color:#F59E0B;font-weight:600;font-size:13px">Nursery se Class 10th Tak · Hindi & English Medium</div>
+          <div style="color:rgba(255,255,255,.6);font-size:12px;margin-top:3px">Sotwara, Nawalgarh, Jhunjhunu, Rajasthan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics">
+  <div class="reveal" style="text-align:center;margin-bottom:56px">
+    <div class="sec-tag">Our Programs</div>
+    <h2 class="sec-h2">Academic <em style="font-style:italic">Excellence</em> at Every Stage</h2>
+    <p class="sec-sub">Nursery se Class 10 tak — Hindi aur English dono medium mein shreshth shiksha.</p>
+  </div>
+  <div class="programs-grid" id="programs-grid"></div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="reveal" style="text-align:center;margin-bottom:56px">
+    <div class="sec-tag">Campus Life</div>
+    <h2 class="sec-h2">World-Class <em style="font-style:italic;color:#F59E0B">Facilities</em></h2>
+  </div>
+  <div class="features-grid" id="features-grid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="about-card">
+        <div class="about-quote">"Education is not the filling of a pail, but the lighting of a fire."</div>
+        <div class="about-author">— W.B. Yeats</div>
+        <div class="about-mini-grid">
+          <div><div class="mini-stat-val">CBSE</div><div class="mini-stat-lbl">Board</div></div>
+          <div><div class="mini-stat-val">10th</div><div class="mini-stat-lbl">Highest Class</div></div>
+          <div><div class="mini-stat-val">Hindi</div><div class="mini-stat-lbl">Medium</div></div>
+          <div><div class="mini-stat-val">Eng</div><div class="mini-stat-lbl">Medium</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="sec-tag">About Us</div>
+      <h2>Nurturing <em>Brilliance</em><br>in Rajasthan</h2>
+      <p>Founded in Sotwara, Nawalgarh, Aryawart School has been a beacon of quality education in the Jhunjhunu district. Our philosophy is simple: every child is unique, every child can shine.</p>
+      <p>With dedicated faculty members, modern infrastructure and a tradition of academic and co-curricular excellence, we are proud to serve the students and families of Rajasthan.</p>
+      <div class="about-btns">
+        <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+        <button class="btn-outline" onclick="document.getElementById('academics').scrollIntoView({behavior:'smooth'})">Our Programs</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS + TESTIMONIALS -->
+<section id="events">
+  <div class="events-inner">
+    <div class="reveal">
+      <div class="sec-tag">What's On</div>
+      <h2 class="sec-h2" style="margin-bottom:32px">Upcoming <em style="font-style:italic">Events</em></h2>
+      <div id="events-list"></div>
+      <button class="btn-main" style="margin-top:10px">View All Events</button>
+    </div>
+    <div class="reveal">
+      <div class="sec-tag" style="color:#1a3a6b">Parent Voices</div>
+      <h2 class="sec-h2" style="margin-bottom:28px">What <em style="font-style:italic;color:#F59E0B">Families</em> Say</h2>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text" id="testi-text"></p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="testi-avatar" id="testi-avatar"></div>
+          <div>
+            <div class="testi-name" id="testi-name"></div>
+            <div class="testi-role" id="testi-role"></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-dots" id="testi-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="reveal" style="text-align:center;margin-bottom:48px">
+    <div class="sec-tag">Campus Gallery</div>
+    <h2 class="sec-h2">Life at <em style="font-style:italic">Aryawart</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" style="background:#FFE5E5"><div class="gallery-emoji">🏆</div><div class="gallery-label">Sports Day</div></div>
+    <div class="gallery-item" style="background:#E5F4FF"><div class="gallery-emoji">🎨</div><div class="gallery-label">Art Fest</div></div>
+    <div class="gallery-item" style="background:#E5FFE9"><div class="gallery-emoji">🎭</div><div class="gallery-label">Annual Play</div></div>
+    <div class="gallery-item" style="background:#FFF5E5"><div class="gallery-emoji">🧪</div><div class="gallery-label">Science Lab</div></div>
+    <div class="gallery-item" style="background:#F0E5FF"><div class="gallery-emoji">📚</div><div class="gallery-label">Library</div></div>
+    <div class="gallery-item" style="background:#E5FFFA"><div class="gallery-emoji">🎵</div><div class="gallery-label">Music Class</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="sec-tag">Reach Us</div>
+      <h2>Start Your Child's<br><em>Journey Here</em></h2>
+      <p>Visit our campus and experience the Aryawart difference. Our admissions team is happy to guide you through the process.</p>
+      <div class="contact-detail">
+        <div class="c-icon">📍</div>
+        <div><div class="c-lbl">Address</div><div class="c-val">Sotwara, Nawalgarh, Jhunjhunu, Rajasthan</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="c-icon">📞</div>
+        <div><div class="c-lbl">Phone</div>
+          <div class="c-val">
+            <a href="tel:9772126916" style="color:rgba(255,255,255,.85);text-decoration:none">+91 97721 26916</a> &nbsp;|&nbsp;
+            <a href="tel:9785320965" style="color:rgba(255,255,255,.85);text-decoration:none">+91 97853 20965</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="c-icon">✉️</div>
+        <div><div class="c-lbl">Email</div><div class="c-val">info@aryawartschool.edu.in</div></div>
+      </div>
+      <div class="contact-detail">
+        <div class="c-icon">🕐</div>
+        <div><div class="c-lbl">Office Hours</div><div class="c-val">Mon–Sat: 8:00 AM – 4:00 PM</div></div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal" id="contact-form-box">
+      <h3>Send an Enquiry</h3>
+      <input class="input-f" placeholder="Parent / Guardian Name" id="f-name"/>
+      <input class="input-f" placeholder="Email Address" id="f-email"/>
+      <input class="input-f" placeholder="Phone Number" id="f-phone"/>
+      <textarea class="input-f" placeholder="Your message or query..." id="f-msg"></textarea>
+      <button class="btn-amber" style="width:100%" onclick="submitForm()">Submit Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="logo-icon" style="width:38px;height:38px;font-size:18px">🏫</div>
+          <div class="footer-brand-name">Aryawart School Sotwara</div>
+        </div>
+        <p class="footer-desc">Empowering young minds with excellence, values and vision for a brighter future in Rajasthan.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-link" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Us</div>
+        <div class="footer-link" onclick="document.getElementById('academics').scrollIntoView({behavior:'smooth'})">Academics</div>
+        <div class="footer-link" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Admissions</div>
+        <div class="footer-link" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">Events</div>
+        <div class="footer-link" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Gallery</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-link"><a href="tel:9772126916" style="color:#666;text-decoration:none">📞 97721 26916</a></div>
+        <div class="footer-link"><a href="tel:9785320965" style="color:#666;text-decoration:none">📞 97853 20965</a></div>
+        <div class="footer-link">✉️ info@aryawartschool.edu.in</div>
+        <div class="footer-link">📍 Sotwara, Nawalgarh</div>
+        <div class="footer-link">Jhunjhunu, Rajasthan</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Medium</div>
+        <div class="footer-link">🇮🇳 Hindi Medium</div>
+        <div class="footer-link">🌐 English Medium</div>
+        <div class="footer-col-title" style="margin-top:20px">Classes</div>
+        <div class="footer-link">Nursery – KG2</div>
+        <div class="footer-link">Class I – X</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Aryawart School Sotwara. All rights reserved.</div>
+      <div class="footer-addr">Sotwara, Nawalgarh, Jhunjhunu, Rajasthan</div>
+      <div class="footer-designed">
+        Designed with ❤️ by <strong>Vikram Shou</strong> &nbsp;·&nbsp;
+        <a href="tel:7878498456">7878498456</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // DATA
+  const PROGRAMS = [
+    {grade:"Pre-Primary",range:"Nursery – KG2",color:"#FF6B6B",icon:"🌱",desc:"Nurturing young minds with play-based learning and creative exploration in a safe, loving environment."},
+    {grade:"Primary",range:"Class I – V",color:"#FFA500",icon:"📚",desc:"Building strong foundational skills in literacy, numeracy, science and the arts through experiential learning."},
+    {grade:"Middle School",range:"Class VI – VIII",color:"#4ECDC4",icon:"🔭",desc:"Encouraging critical thinking, curiosity and self-expression across a broad and balanced curriculum."},
+    {grade:"Secondary",range:"Class IX – X",color:"#45B7D1",icon:"⚗️",desc:"Preparing students for board examinations while fostering leadership and independent thought."},
+    {grade:"Hindi Medium",range:"Nursery – Class X",color:"#5CB85C",icon:"🇮🇳",desc:"Sampurn shiksha Hindi madhyam mein — apni bhasha mein seekhein, apni sanskriti ko samjhein aur aage badhein."},
+    {grade:"English Medium",range:"Nursery – Class X",color:"#9B59B6",icon:"🌐",desc:"Complete education in English medium — building fluency, confidence and global communication skills from day one."},
+  ];
+
+  const FEATURES = [
+    {title:"Smart Classrooms",icon:"🖥️",desc:"Every classroom equipped with interactive boards and digital learning tools."},
+    {title:"Science Lab",icon:"🧪",desc:"State-of-the-art science labs for hands-on discovery and experimentation."},
+    {title:"Library",icon:"📖",desc:"Extensive collection of books and digital resources for self-directed learning."},
+    {title:"Safe Campus",icon:"🛡️",desc:"24×7 trained security staff and a strict anti-bullying policy for every student."},
+    {title:"Sports Ground",icon:"⚽",desc:"Spacious grounds for cricket, kabaddi, athletics and outdoor physical activities."},
+    {title:"Counselling",icon:"💬",desc:"Dedicated academic and emotional wellness support for every student."},
+  ];
+
+  const EVENTS = [
+    {date:"12",mon:"MAY",title:"Annual Sports Day",tag:"Sports",color:"#FF6B6B"},
+    {date:"18",mon:"MAY",title:"Science Exhibition 2025",tag:"Academics",color:"#4ECDC4"},
+    {date:"25",mon:"MAY",title:"Parent-Teacher Meeting",tag:"PTM",color:"#FFA500"},
+    {date:"02",mon:"JUN",title:"Inter-School Debate",tag:"Co-Curricular",color:"#9B59B6"},
+  ];
+
+  const TESTIMONIALS = [
+    {name:"Anjali Mehta",role:"Parent — Class VII",text:"Aryawart School Sotwara has completely transformed my daughter's confidence. The teachers genuinely care about every child's growth — academically and personally."},
+    {name:"Rajesh Kumar",role:"Parent — Class X",text:"My son scored 95% in boards and credits it to the incredible faculty here. The structured support and motivation made all the difference."},
+    {name:"Priya Nair",role:"Parent — Class III",text:"As a working mother, I needed a school I could trust. Aryawart School provides safety, warmth and quality education — I couldn't ask for more."},
+  ];
+
+  // RENDER PROGRAMS
+  const pg = document.getElementById('programs-grid');
+  PROGRAMS.forEach(p => {
+    pg.innerHTML += `<div class="program-card reveal" style="border-top-color:${p.color}">
+      <div class="prog-icon">${p.icon}</div>
+      <div class="prog-range" style="background:${p.color}22;color:${p.color}">${p.range}</div>
+      <div class="prog-title">${p.grade}</div>
+      <div class="prog-desc">${p.desc}</div>
+    </div>`;
+  });
+
+  // RENDER FEATURES
+  const fg = document.getElementById('features-grid');
+  FEATURES.forEach(f => {
+    fg.innerHTML += `<div class="feature-card reveal">
+      <div class="feat-icon">${f.icon}</div>
+      <div class="feat-title">${f.title}</div>
+      <div class="feat-desc">${f.desc}</div>
+    </div>`;
+  });
+
+  // RENDER EVENTS
+  const el = document.getElementById('events-list');
+  EVENTS.forEach(e => {
+    el.innerHTML += `<div class="event-card">
+      <div class="event-date-box" style="background:${e.color}22;border:2px solid ${e.color}44">
+        <div class="event-day" style="color:${e.color}">${e.date}</div>
+        <div class="event-mon" style="color:${e.color}">${e.mon}</div>
+      </div>
+      <div style="flex:1">
+        <div class="event-tag" style="background:${e.color}18;color:${e.color}">${e.tag}</div>
+        <div class="event-title">${e.title}</div>
+      </div>
+      <div style="color:${e.color};font-size:18px">→</div>
+    </div>`;
+  });
+
+  // TESTIMONIALS
+  let activeTesti = 0;
+  function renderTesti() {
+    const t = TESTIMONIALS[activeTesti];
+    document.getElementById('testi-text').textContent = t.text;
+    document.getElementById('testi-avatar').textContent = t.name[0];
+    document.getElementById('testi-name').textContent = t.name;
+    document.getElementById('testi-role').textContent = t.role;
+    document.querySelectorAll('.dot').forEach((d,i) => {
+      d.style.width = i === activeTesti ? '28px' : '8px';
+      d.style.background = i === activeTesti ? '#1a3a6b' : '#ddd';
+    });
+  }
+  const dotsEl = document.getElementById('testi-dots');
+  TESTIMONIALS.forEach((_,i) => {
+    const d = document.createElement('button');
+    d.className = 'dot';
+    d.style.cssText = 'height:8px;width:8px;border-radius:4px;border:none;background:#ddd;cursor:pointer;transition:all .3s';
+    d.onclick = () => { activeTesti = i; renderTesti(); };
+    dotsEl.appendChild(d);
+  });
+  renderTesti();
+  setInterval(() => { activeTesti = (activeTesti + 1) % TESTIMONIALS.length; renderTesti(); }, 4500);
+
+  // CONTACT FORM
+  function submitForm() {
+    const n = document.getElementById('f-name').value;
+    const e = document.getElementById('f-email').value;
+    if (!n || !e) { alert('Kripya naam aur email bharen.'); return; }
+    const box = document.getElementById('contact-form-box');
+    box.innerHTML = `<div class="success-box">
+      <div class="success-emoji">🎉</div>
+      <h3 style="font-family:'Playfair Display',serif;color:#fff;font-size:22px;margin-bottom:8px">Thank You!</h3>
+      <p style="color:rgba(255,255,255,.6);font-size:14px">Hamari team 24 ghante mein aapse contact karegi.</p>
+    </div>`;
+    setTimeout(() => {
+      box.innerHTML = `<h3>Send an Enquiry</h3>
+        <input class="input-f" placeholder="Parent / Guardian Name" id="f-name"/>
+        <input class="input-f" placeholder="Email Address" id="f-email"/>
+        <input class="input-f" placeholder="Phone Number" id="f-phone"/>
+        <textarea class="input-f" placeholder="Your message or query..." id="f-msg"></textarea>
+        <button class="btn-amber" style="width:100%" onclick="submitForm()">Submit Enquiry →</button>`;
+    }, 3500);
+  }
+
+  // HAMBURGER MENU
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  function observeAll() {
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+  observeAll();
+  setTimeout(observeAll, 500);
+</script>
+</body>
+</html>
